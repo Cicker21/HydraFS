@@ -27,11 +27,11 @@ if !changed! equ 1 (
     )
 :askCommitMsg
     set /p "commitMsg=Mensaje de commit (obligatorio): "
-    if "%commitMsg%" == "" (
+    if "!commitMsg!" == "" (
         echo ERROR: el mensaje de commit es obligatorio.
         goto askCommitMsg
     )
-    echo Commiteando cambios: "%commitMsg%"
+    echo Commiteando cambios: "!commitMsg!"
     git commit -m "!commitMsg!"
     if errorlevel 1 (
         echo ERROR: git commit ha fallado.
