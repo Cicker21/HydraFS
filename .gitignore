@@ -1,3 +1,7 @@
+# Local batch helpers
+*.bat
+!actualizar.bat
+
 # Logs
 logs
 *.log
@@ -7,9 +11,18 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependencies and build output
+node_modules/
+/dist
+/dist-ssr
+/target/
+/src-tauri/target/
+*.wixobj
+*.exe
+*.dll
+*.pdb
+*.cache
+*.temp
 *.local
 
 # Editor directories and files
@@ -17,6 +30,7 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
