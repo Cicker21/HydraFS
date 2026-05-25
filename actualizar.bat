@@ -28,7 +28,7 @@ if !changed! equ 1 (
             set "commitMsg=Actualizacion automatica"
         )
     ) else (
-        set "commitMsg=%~1"
+        set "commitMsg=%*"
     )
     echo Commiteando cambios: "%commitMsg%"
     git commit -m "!commitMsg!"
