@@ -1,48 +1,95 @@
 # HydraFS
 
-HydraFS es una aplicación de escritorio construida con Tauri y una interfaz web ligera en HTML, CSS y JavaScript.
+HydraFS es una aplicación de escritorio para gestión de contraseñas y cifrado seguro de archivos y carpetas. Está construida con Tauri, usando una interfaz web ligera en HTML, CSS y JavaScript en el frontend, y Rust en el backend para las funciones de seguridad y cifrado.
 
-## Qué incluye este repositorio
+## Funcionalidades principales
 
-- `src/`: frontend de la aplicación.
-- `src-tauri/`: backend en Rust, configuración de Tauri, iconos y scripts de empaquetado.
-- `.gitignore`: reglas para evitar subir dependencias y archivos de compilación.
-- `actualizar.bat`: script para subir los cambios automáticamente a GitHub.
+- Gestión segura de contraseñas:
+  - Almacena contraseñas y datos de acceso en un repositorio local cifrado.
+  - Genera y recuerda credenciales para servicios, apps y sitios web.
+- Cifrado de archivos y carpetas:
+  - Cifra y descifra archivos individuales.
+  - Cifra carpetas completas conservando la estructura de archivos.
+- Interfaz de escritorio multiplataforma con Tauri:
+  - Experiencia nativa en Windows, Mac y Linux.
+  - Acceso rápido a funciones de seguridad desde una UI moderna.
+
+## Estructura del repositorio
+
+- `src/`: frontend de la aplicación, incluye HTML, CSS y JavaScript.
+- `src-tauri/`: backend en Rust y configuración de Tauri.
+- `src-tauri/icons/`: iconos para la app.
+- `src-tauri/scripts/`: scripts de soporte y preparación.
+- `actualizar.bat`: script para comitear y subir cambios al repositorio remoto.
+- `.gitignore`: reglas para ignorar dependencias, binarios y archivos temporales.
 
 ## Requisitos
 
 - Node.js 18+ y npm
 - Rust toolchain (`rustup`, `cargo`)
-- Tauri CLI
+- Tauri CLI instalado
 
-## Desarrollo
+## Instalación y desarrollo
 
-1. Instala dependencias:
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/Cicker21/HydraFS.git
+   cd HydraFS
+   ```
+2. Instala dependencias de Node:
    ```bash
    npm install
    ```
-2. Ejecuta la aplicación en modo desarrollo:
+3. Inicia la aplicación en modo desarrollo:
    ```bash
    npm run tauri dev
    ```
 
-## Compilación
+## Compilación de la aplicación
 
-Para generar una versión empaquetada:
+Para construir la aplicación empaquetada:
 
 ```bash
 npm run tauri build
 ```
 
-## Actualizar al repositorio remoto
+El resultado se encontrará en `src-tauri/target/release/bundle/`.
 
-En la raíz del proyecto, ejecuta `actualizar.bat` para agregar, commitear y subir todos los cambios al remoto de GitHub.
+## Uso de `actualizar.bat`
+
+Ejecuta `actualizar.bat` desde la raíz del proyecto para:
+
+- Añadir todos los cambios (`git add -A`)
+- Solicitar un mensaje de commit obligatorio
+- Hacer commit de los cambios
+- Enviar la rama actual al remoto configurado
 
 ```bat
 actualizar.bat
 ```
 
-## Notas
+## Seguridad
 
-- `actualizar.bat` no subirá cambios si no hay nada nuevo para commitear.
-- El `.gitignore` ya está configurado para ignorar artefactos de compilación y archivos temporales.
+- Este proyecto hace uso de Rust para operaciones de cifrado y manejo de datos sensibles.
+- No subas archivos de claves, contraseñas o datos de configuración privados al repositorio.
+- Asegúrate de proteger el equipo donde se ejecuta la aplicación.
+
+## Contribución
+
+Si deseas contribuir:
+
+1. Crea una rama nueva:
+   ```bash
+   git checkout -b mejora-nombre
+   ```
+2. Haz tus cambios y prueba la aplicación.
+3. Commit y push a tu rama:
+   ```bash
+   git add .
+   git commit -m "Describe tu cambio"
+   git push origin mejora-nombre
+   ```
+
+## Notas finales
+
+HydraFS está pensado como una base para una gestora de contraseñas y cifrado local. El objetivo es ofrecer una herramienta flexible y segura que combine almacenamiento cifrado con la capacidad de proteger archivos y carpetas en el escritorio.
