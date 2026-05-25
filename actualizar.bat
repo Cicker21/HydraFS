@@ -22,8 +22,16 @@ for /f "delims=" %%A in ('git status --porcelain') do set "changed=1"
 
 if !changed! equ 1 (
     echo.
-    echo Commiteando cambios...
-    git commit -m "Actualización automática"
+    if "%~1" == "" (
+        set /p "commitMsg=Mensaje de commit (deja vacio para usar el predeterminado): "
+        if "%commitMsg%" == "" (
+            set "commitMsg=Actualizacion automatica"
+        )
+    ) else (
+        set "commitMsg=%~1"
+    )
+    echo Commiteando cambios: "%commitMsg%"
+    git commit -m "!commitMsg!"
     if errorlevel 1 (
         echo ERROR: git commit falló.
         pause
