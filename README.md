@@ -69,25 +69,6 @@ actualizar.bat
 ## Seguridad
 
 - Este proyecto hace uso de Rust para operaciones de cifrado y manejo de datos sensibles.
-- No subas archivos de claves, contraseñas o datos de configuración privados al repositorio.
+- No publiques archivos de claves, contraseñas o datos de configuración privados.
 - Asegúrate de proteger el equipo donde se ejecuta la aplicación.
 
-## Contribución
-
-Si deseas contribuir:
-
-1. Crea una rama nueva:
-   ```bash
-   git checkout -b mejora-nombre
-   ```
-2. Haz tus cambios y prueba la aplicación.
-3. Commit y push a tu rama:
-   ```bash
-   git add .
-   git commit -m "Describe tu cambio"
-   git push origin mejora-nombre
-   ```
-
-## Notas finales
-
-HydraFS está pensado como una base para un gestor de contraseñas y cifrado local. El objetivo es ofrecer una herramienta flexible y segura que combine almacenamiento cifrado con la capacidad de proteger archivos y carpetas en el escritorio.
