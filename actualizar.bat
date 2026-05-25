@@ -22,13 +22,14 @@ for /f "delims=" %%A in ('git status --porcelain') do set "changed=1"
 
 if !changed! equ 1 (
     echo.
-    if "%~1" == "" (
-        set /p "commitMsg=Mensaje de commit (deja vacio para usar el predeterminado): "
-        if "%commitMsg%" == "" (
-            set "commitMsg=Actualizacion automatica"
-        )
-    ) else (
-        set "commitMsg=%*"
+    if not "%~1" == "" (
+        echo Aviso: los argumentos de la línea de comandos se ignoran.
+    )
+:askCommitMsg
+    set /p "commitMsg=Mensaje de commit (obligatorio): "
+    if "%commitMsg%" == "" (
+        echo ERROR: el mensaje de commit es obligatorio.
+        goto askCommitMsg
     )
     echo Commiteando cambios: "%commitMsg%"
     git commit -m "!commitMsg!"
