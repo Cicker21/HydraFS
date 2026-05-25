@@ -33,7 +33,7 @@ if !changed! equ 1 (
     echo Commiteando cambios: "%commitMsg%"
     git commit -m "!commitMsg!"
     if errorlevel 1 (
-        echo ERROR: git commit falló.
+        echo ERROR: git commit ha fallado.
         pause
         exit /b 1
     )
@@ -46,12 +46,12 @@ echo.
 echo Enviando cambios al remoto...
 git push
 if errorlevel 1 (
-    echo ERROR: git push falló.
+    echo ERROR: git push ha fallado.
     pause
     exit /b 1
 )
 
 echo.
-echo Actualización completada.
+echo Actualizacion completada.
 pause
 endlocal
