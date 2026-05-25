@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "HydraFS",
+  "version": "0.1.0",
+  "identifier": "dev.cicker.hydraFS",
+  "build": {
+    "frontendDist": "../src",
+    "beforeBundleCommand": "powershell -NoProfile -ExecutionPolicy Bypass -File src-tauri/scripts/prepare-tools-bin.ps1"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "HydraFS",
+        "width": 1000,
+        "height": 700,
+        "visible": false,
+        "decorations": false
+      },
+      {
+        "label": "tools",
+        "title": "HydraFS Tools",
+        "url": "basic.html",
+        "width": 640,
+        "height": 420,
+        "minWidth": 640,
+        "minHeight": 420,
+        "resizable": true,
+        "visible": false
+      }
+    ],
+    "security": {
+      "csp": null,
+      "capabilities": ["default"]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "windows": {
+      "nsis": {
+        "installerHooks": "windows/context-menu.nsh"
+      },
+      "wix": {
+        "fragmentPaths": ["windows/context-menu.wxs"],
+        "componentGroupRefs": ["HydraFSContextMenu"]
+      }
+    },
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <DirectoryRef Id="INSTALLDIR">
+      <Component Id="HydraFSContextMenuFiles" Guid="*">
+        <RegistryKey Root="HKCU" Key="Software\Classes\*\shell\HydraFS.Open">
+          <RegistryValue Type="string" Value="Abrir con HydraFS" />
+          <RegistryValue Name="Icon" Type="string" Value="[INSTALLDIR]hydrafs_tools.exe" />
+        </RegistryKey>
+        <RegistryKey Root="HKCU" Key="Software\Classes\*\shell\HydraFS.Open\command">
+          <RegistryValue Type="string" Value='&quot;[INSTALLDIR]hydrafs_tools.exe&quot; --hydrafs-open &quot;%1&quot;' KeyPath="yes" />
+        </RegistryKey>
+      </Component>
+
+      <Component Id="HydraFSHfsAssociation" Guid="*">
+        <RegistryKey Root="HKCU" Key="Software\Classes\.hfs">
+          <RegistryValue Type="string" Value="HydraFS.HFS" KeyPath="yes" />
+        </RegistryKey>
+        <RegistryKey Root="HKCU" Key="Software\Classes\HydraFS.HFS">
+          <RegistryValue Type="string" Value="HydraFS encrypted file" />
+        </RegistryKey>
+        <RegistryKey Root="HKCU" Key="Software\Classes\HydraFS.HFS\DefaultIcon">
+          <RegistryValue Type="string" Value="[INSTALLDIR]hydrafs_tools.exe,0" />
+        </RegistryKey>
+        <RegistryKey Root="HKCU" Key="Software\Classes\HydraFS.HFS\shell\open\command">
+          <RegistryValue Type="string" Value='&quot;[INSTALLDIR]hydrafs_tools.exe&quot; --hydrafs-open &quot;%1&quot;' />
+        </RegistryKey>
+      </Component>
+
+      <Component Id="HydraFSContextMenuDirectories" Guid="*">
+        <RegistryKey Root="HKCU" Key="Software\Classes\Directory\shell\HydraFS.Open">
+          <RegistryValue Type="string" Value="Abrir con HydraFS" />
+          <RegistryValue Name="Icon" Type="string" Value="[INSTALLDIR]hydrafs_tools.exe" />
+        </RegistryKey>
+        <RegistryKey Root="HKCU" Key="Software\Classes\Directory\shell\HydraFS.Open\command">
+          <RegistryValue Type="string" Value='&quot;[INSTALLDIR]hydrafs_tools.exe&quot; --hydrafs-open &quot;%1&quot;' KeyPath="yes" />
+        </RegistryKey>
+      </Component>
+
+      <Component Id="HydraFSContextMenuFolders" Guid="*">
+        <RegistryKey Root="HKCU" Key="Software\Classes\Folder\shell\HydraFS.Open">
+          <RegistryValue Type="string" Value="Abrir con HydraFS" />
+          <RegistryValue Name="Icon" Type="string" Value="[INSTALLDIR]hydrafs_tools.exe" />
+        </RegistryKey>
+        <RegistryKey Root="HKCU" Key="Software\Classes\Folder\shell\HydraFS.Open\command">
+          <RegistryValue Type="string" Value='&quot;[INSTALLDIR]hydrafs_tools.exe&quot; --hydrafs-open &quot;%1&quot;' KeyPath="yes" />
+        </RegistryKey>
+      </Component>
+
+      <Component Id="HydraFSContextMenuBackground" Guid="*">
+        <RegistryKey Root="HKCU" Key="Software\Classes\Directory\Background\shell\HydraFS.Open">
+          <RegistryValue Type="string" Value="Abrir con HydraFS" />
+          <RegistryValue Name="Icon" Type="string" Value="[INSTALLDIR]hydrafs_tools.exe" />
+        </RegistryKey>
+        <RegistryKey Root="HKCU" Key="Software\Classes\Directory\Background\shell\HydraFS.Open\command">
+          <RegistryValue Type="string" Value='&quot;[INSTALLDIR]hydrafs_tools.exe&quot; --hydrafs-open &quot;%V&quot;' KeyPath="yes" />
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <ComponentGroup Id="HydraFSContextMenu">
+      <ComponentRef Id="HydraFSContextMenuFiles" />
+      <ComponentRef Id="HydraFSHfsAssociation" />
+      <ComponentRef Id="HydraFSContextMenuDirectories" />
+      <ComponentRef Id="HydraFSContextMenuFolders" />
+      <ComponentRef Id="HydraFSContextMenuBackground" />
+    </ComponentGroup>
+  </Fragment>
+</Wix>

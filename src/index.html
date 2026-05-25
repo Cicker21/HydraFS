@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/assets/logoHFS.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HydraFS</title>
+    <script type="module" src="/main.js" defer></script>
+  </head>
+
+  <body>
+    <div class="app-container">
+
+      <!-- Main Workspace Panel -->
+      <div class="main-workspace">
+        <div class="window-titlebar">
+          <div class="frame-left">
+            <div class="app-icon" aria-hidden="true">
+              <img src="/assets/logoHFS.ico" alt="" />
+            </div>
+            <button id="brand-home-btn" class="brand-button header-brand" type="button">HydraFS</button>
+            <button id="brand-settings-btn" class="titlebar-text-btn" type="button" title="Ajustes">Ajustes</button>
+            <button id="brand-personalization-btn" class="titlebar-text-btn" type="button" title="Personalización">Personalización</button>
+          </div>
+          <div class="window-controls">
+            <button id="window-minimize-btn" class="window-control-btn" type="button" title="Minimizar">−</button>
+            <button id="window-maximize-btn" class="window-control-btn" type="button" title="Maximizar">□</button>
+            <button id="window-close-btn" class="window-control-btn close" type="button" title="Cerrar">×</button>
+          </div>
+        </div>
+
+        <header>
+          <div class="nav-buttons">
+            <div id="nav-back-btn" class="nav-btn" title="Atrás">
+              <svg class="icon" viewBox="0 0 24 24" style="fill: var(--icon-primary);"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            </div>
+            <div id="nav-forward-btn" class="nav-btn" title="Adelante">
+              <svg class="icon" viewBox="0 0 24 24" style="fill: var(--icon-primary);"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </div>
+            <div id="nav-up-btn" class="nav-btn" title="Subir">
+              <svg class="icon" viewBox="0 0 24 24" style="fill: var(--icon-secondary);"><path d="M7 14l5-5 5 5z"/></svg>
+            </div>
+            <div id="nav-refresh-btn" class="nav-btn" title="Recargar">
+              <svg class="icon" viewBox="0 0 24 24" style="fill: var(--icon-secondary);"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+            </div>
+          </div>
+
+          <div class="address-bar">
+            <svg class="icon" viewBox="0 0 24 24" style="fill: var(--icon-primary);"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <input type="text" id="address-input" value="Este equipo" />
+          </div>
+
+          <div class="search-bar">
+            <svg class="icon" viewBox="0 0 24 24" style="fill: var(--icon-secondary);"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            <input type="text" placeholder="Buscar" />
+          </div>
+        </header>
+
+        <!-- View 1: Explorer -->
+        <section id="explorer-view" class="workspace-view">
+          <div class="secondary-toolbar">
+            <div class="breadcrumb" id="breadcrumb-path">Este equipo</div>
+            <div class="view-toggle">
+              <button id="view-toggle-btn">
+                <svg class="icon" viewBox="0 0 24 24" style="fill: var(--icon-secondary);"><path d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"/></svg>
+                <span id="view-toggle-text">Lista</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="main-layout">
+            <aside id="sidebar-nav">
+              <div class="sidebar-scroll-container">
+                <div class="sidebar-section-title">Acceso rápido</div>
+                <div class="sidebar-item" data-path="Desktop">
+                  <svg class="icon" viewBox="0 0 24 24" style="fill: #40C4FF;"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+                  Escritorio
+                </div>
+                <div class="sidebar-item" data-path="Documents">
+                  <svg class="icon" viewBox="0 0 24 24" style="fill: #FFD600;"><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg>
+                  Documentos
+                </div>
+                <div class="sidebar-item" data-path="Downloads">
+                  <svg class="icon" viewBox="0 0 24 24" style="fill: #00E676;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                  Descargas
+                </div>
+
+                <div class="sidebar-section-title">Este equipo</div>
+                <div class="sidebar-item active" data-path="This PC">
+                  <svg class="icon" viewBox="0 0 24 24" style="fill: #2979FF;"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
+                  Este equipo
+                </div>
+                <div id="sidebar-disks">
+                   <!-- Dynamic disks will follow -->
+                </div>
+              </div>
+            </aside>
+
+            <main id="main-content">
+              <div id="list-header" class="list-header" style="display: none;">
+                <div class="list-header-spacer"></div>
+                <div class="header-cell sortable" data-sort="name" id="h-name">Nombre<span class="sort-icon"></span><div class="resizer"></div></div>
+                <div class="header-cell sortable" data-sort="modified_at" id="h-modified_at">Fecha de modificación<span class="sort-icon"></span><div class="resizer"></div></div>
+                <div class="header-cell sortable" data-sort="kind" id="h-kind">Tipo<span class="sort-icon"></span><div class="resizer"></div></div>
+                <div class="header-cell sortable" data-sort="size" id="h-size">Tamaño<span class="sort-icon"></span><div class="resizer" style="display:none;"></div></div>
+              </div>
+              <div id="file-grid" class="file-grid">
+                 <!-- Items injected here -->
+              </div>
+            </main>
+          </div>
+        </section>
+
+        <!-- View 2: Passwords -->
+        <section id="passwords-view" class="workspace-view hidden">
+          <div class="passwords-shell">
+            <main class="passwords-main">
+              <div class="passwords-tab-strip">
+                <div class="passwords-tabs">
+                  <button class="password-tab active" type="button" data-password-tab="manager">Contraseñas</button>
+                  <button class="password-tab" type="button" data-password-tab="campos">Campos</button>
+                  <button class="password-tab" type="button" data-password-tab="generador">Generador</button>
+                </div>
+                <button id="password-new-btn" class="accent-button" type="button">Nueva entrada</button>
+              </div>
+              <div class="passwords-meta-row">
+                <div class="passwords-subtitle" id="password-csv-path">Cargando archivo...</div>
+              </div>
+
+              <section id="password-viewer-panel" class="password-panel">
+                <div class="viewer-panel-top">
+                  <div class="viewer-search-row">
+                    <div class="viewer-search-field">
+                      <label class="field-label" for="password-search-input">Buscar coincidencias</label>
+                      <input id="password-search-input" class="vault-input" type="search" placeholder="Buscar servicio, usuario, notas..." />
+                    </div>
+                    <label class="toggle-switch viewer-search-toggle">
+                      <input type="checkbox" id="password-search-case-toggle" />
+                      <span class="toggle-slider"></span>
+                      Coincidir mayúsculas
+                    </label>
+                  </div>
+
+                  <div class="viewer-search-row viewer-apply-row">
+                    <div class="viewer-search-field">
+                      <label class="field-label" for="password-apply-password-input">Aplicar contraseña</label>
+                      <input id="password-apply-password-input" class="vault-input" type="password" placeholder="Introduce texto cifrado o clave" />
+                    </div>
+                    <button id="password-apply-password-btn" class="accent-button" type="button">Aplicar contraseña</button>
+                    <div id="password-apply-error" class="password-apply-error"></div>
+                  </div>
+                </div>
+
+                <div class="password-table-wrapper">
+                  <table id="password-table" class="password-table">
+                    <thead>
+                      <tr>
+                        <th>Servicio</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                        <th>Notas</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section id="password-manager-panel" class="password-panel hidden">
+                <div class="panel-grid">
+                  <div class="panel-col">
+                    <label class="field-label" for="password-service">Servicio</label>
+                    <input id="password-service" class="vault-input" type="text" placeholder="Ej. GitHub" />
+
+                    <label class="field-label" for="password-username">Usuario</label>
+                    <input id="password-username" class="vault-input" type="text" placeholder="usuario@example.com" />
+
+                    <label class="field-label" for="password-secret">Contraseña</label>
+                    <input id="password-secret" class="vault-input" type="text" placeholder="********" />
+
+                    <label class="field-label" for="password-notes">Notas</label>
+                    <textarea id="password-notes" class="vault-textarea" rows="5" placeholder="Notas internas"></textarea>
+
+                    <div class="vault-actions">
+                      <button id="password-save-btn" class="accent-button" type="button">Guardar</button>
+                      <button id="password-delete-btn" class="ghost-button" type="button">Eliminar</button>
+                      <button id="password-reset-btn" class="ghost-button" type="button">Limpiar</button>
+                    </div>
+                  </div>
+
+                  <div class="panel-col panel-card">
+                    <div class="panel-card-title">Vista previa</div>
+                    <div class="preview-row"><span>Servicio</span><strong id="password-preview-service">-</strong></div>
+                    <div class="preview-row"><span>Usuario</span><strong id="password-preview-username">-</strong></div>
+                    <div class="preview-row"><span>Contraseña</span><strong id="password-preview-secret">-</strong></div>
+                    <div class="preview-row preview-notes"><span>Notas</span><strong id="password-preview-notes">-</strong></div>
+                    <div class="vault-help">Los cambios se guardan en un CSV dentro de AppData.</div>
+                  </div>
+                </div>
+              </section>
+
+              <section id="password-fields-panel" class="password-panel hidden">
+                <div class="panel-card">
+                  <div class="panel-card-title">Campos</div>
+                  <p class="panel-copy">Configura el esquema del CSV: orden, nombre, tipo y vista previa antes de aplicar.</p>
+                  <div class="panel-row" style="gap:10px;margin:12px 0 8px;flex-wrap:wrap;align-items:flex-end;">
+                    <label class="field-label" for="password-master-current">Contraseña maestra actual</label>
+                    <input id="password-master-current" class="vault-input" type="password" placeholder="Dejar vacío si no aplica" />
+                    <label class="field-label" for="password-master-new">Nueva contraseña maestra</label>
+                    <input id="password-master-new" class="vault-input" type="password" placeholder="Cambiar contraseña maestra" />
+                  </div>
+                  <div style="display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 8px;align-items:center;">
+                    <button id="password-add-field-btn" class="accent-button" type="button">Añadir campo</button>
+                    <button id="password-reset-fields-btn" class="ghost-button" type="button">Restablecer</button>
+                    <button id="password-apply-fields-btn" class="accent-button" type="button">Aplicar cambios</button>
+                    <button id="password-cancel-fields-btn" class="ghost-button" type="button">Cancelar</button>
+                  </div>
+                  <div id="password-fields-list" style="display:flex;flex-direction:column;gap:10px;margin-top:12px;"></div>
+                  <div id="password-fields-preview" class="panel-card" style="margin-top:16px;padding:14px;font-size:14px;">
+                    <div class="panel-card-title" style="margin-bottom:10px;">Vista previa del esquema</div>
+                    <div id="password-fields-preview-table" style="overflow:auto;"></div>
+                  </div>
+                  <div class="vault-help" id="password-settings-info"></div>
+                </div>
+              </section>
+
+              <section id="password-generator-panel" class="password-panel hidden">
+                <div class="panel-card">
+                  <div class="panel-card-title">Generador</div>
+                  <p class="panel-copy">Genera contraseñas y pégalas en el campo "Contraseña".</p>
+                  <div style="display:flex;gap:12px;align-items:center;margin:12px 0;flex-wrap:wrap;">
+                    <label>Longitud: <input id="gen-length" type="number" min="8" max="64" value="16" style="width:80px;margin-left:6px;"></label>
+                    <label><input id="gen-upper" type="checkbox" checked> Mayúsculas</label>
+                    <label><input id="gen-lower" type="checkbox" checked> Minúsculas</label>
+                    <label><input id="gen-numbers" type="checkbox" checked> Números</label>
+                    <label><input id="gen-symbols" type="checkbox" checked> Símbolos</label>
+                    <button id="gen-generate-btn" class="accent-button" type="button">Generar</button>
+                    <button id="gen-copy-btn" class="ghost-button" type="button">Copiar</button>
+                  </div>
+                  <div class="vault-help">Plantillas de generación se guardarán en AppData.</div>
+                </div>
+              </section>
+            </main>
+          </div>
+        </section>
+
+        <footer>
+          <div id="status-text">0 elementos</div>
+        </footer>
+      </div>
+    </div>
+
+    <div id="settings-modal" class="modal-overlay hidden">
+      <div class="settings-modal-content">
+        <div class="settings-modal-header">
+          <h3>Ajustes del Sistema</h3>
+          <button id="settings-close-btn" class="close-btn" type="button" title="Cerrar">&times;</button>
+        </div>
+        <div class="settings-modal-body settings-modal-body-single">
+          <section class="settings-section settings-section-wide">
+            <h4>Gestor de contraseñas</h4>
+            <p class="settings-desc font-small">Ruta del archivo CSV cifrado de contraseñas:</p>
+            <div class="settings-path-box font-small" id="settings-csv-path">Cargando...</div>
+          </section>
+
+          <section class="settings-section settings-section-wide">
+            <h4>Comportamiento del Explorador</h4>
+            <p class="settings-desc font-small">Restablece la anchura predeterminada de las columnas del listado:</p>
+            <button id="settings-reset-cols-btn" class="ghost-button mt-8" type="button">Restablecer columnas</button>
+          </section>
+
+          <section class="settings-section settings-section-wide">
+            <h4>Herramientas Rápidas</h4>
+            <p class="settings-desc font-small">Abre la utilidad independiente HydraFS Tools para encriptación y desencriptación rápida de archivos:</p>
+            <button id="settings-launch-tools-btn" class="accent-button mt-8" type="button">Lanzar HydraFS Tools</button>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div id="personalization-modal" class="modal-overlay hidden">
+      <div class="settings-modal-content">
+        <div class="settings-modal-header">
+          <h3>Personalización</h3>
+          <button id="personalization-close-btn" class="close-btn" type="button" title="Cerrar">&times;</button>
+        </div>
+        <div class="settings-modal-body settings-modal-body-single">
+          <section class="settings-section settings-section-wide" id="theme-settings-section">
+            <div class="settings-section-heading">
+              <div>
+                <h4>Tema</h4>
+                <p class="settings-desc font-small">Edita los colores y guarda el tema en themes.json.</p>
+              </div>
+              <div class="theme-actions">
+                <select id="theme-select" class="theme-select"></select>
+                <input id="theme-name-input" class="theme-name-input" type="text" spellcheck="false" placeholder="Nombre del tema" />
+                <button id="theme-reset-btn" class="ghost-button" type="button">Restaurar</button>
+                <button id="theme-save-btn" class="accent-button" type="button">Guardar tema</button>
+              </div>
+            </div>
+
+            <div class="accent-picker">
+              <button class="accent-swatch" data-accent="#0f766e" style="--swatch: #0f766e;" type="button" title="Turquesa"></button>
+              <button class="accent-swatch" data-accent="#0078d4" style="--swatch: #0078d4;" type="button" title="Azul"></button>
+              <button class="accent-swatch" data-accent="#2eaf7d" style="--swatch: #2eaf7d;" type="button" title="Verde"></button>
+              <button class="accent-swatch" data-accent="#ff6b6b" style="--swatch: #ff6b6b;" type="button" title="Rojo"></button>
+              <button class="accent-swatch" data-accent="#f57c00" style="--swatch: #f57c00;" type="button" title="Naranja"></button>
+              <button class="accent-swatch" data-accent="#d97706" style="--swatch: #d97706;" type="button" title="Ámbar HFS"></button>
+            </div>
+
+            <div class="theme-color-grid">
+              <label><span>Fondo</span><input type="color" data-theme-key="bg_color" /></label>
+              <label><span>Superficie</span><input type="color" data-theme-key="surface_color" /></label>
+              <label><span>Texto</span><input type="color" data-theme-key="text_color" /></label>
+              <label><span>Texto tenue</span><input type="color" data-theme-key="muted_text_color" /></label>
+              <label><span>Bordes</span><input type="color" data-theme-key="border_color" /></label>
+              <label><span>Panel lateral</span><input type="color" data-theme-key="sidebar_bg" /></label>
+              <label><span>Hover</span><input type="color" data-theme-key="hover_color" /></label>
+              <label><span>Acento</span><input type="color" data-theme-key="accent_color" /></label>
+              <label><span>Texto sobre acento</span><input type="color" data-theme-key="accent_ink" /></label>
+              <label><span>Icono principal</span><input type="color" data-theme-key="icon_primary" /></label>
+              <label><span>Icono secundario</span><input type="color" data-theme-key="icon_secondary" /></label>
+              <label><span>Tooltip fondo</span><input type="color" data-theme-key="tooltip_bg" /></label>
+              <label><span>Tooltip texto</span><input type="color" data-theme-key="tooltip_text" /></label>
+              <label><span>Peligro</span><input type="color" data-theme-key="danger_color" /></label>
+              <label><span>Advertencia</span><input type="color" data-theme-key="warning_color" /></label>
+              <label><span>Éxito</span><input type="color" data-theme-key="success_color" /></label>
+              <label><span>Archivo .hfs</span><input type="color" data-theme-key="hfs_file_color" /></label>
+              <label><span>Carpeta .hfs</span><input type="color" data-theme-key="hfs_folder_color" /></label>
+            </div>
+
+            <div class="settings-row mt-12 settings-row-inline">
+              <label class="toggle-switch">
+                <input type="checkbox" id="settings-highlight-hfs-files" checked />
+                <span class="toggle-slider"></span>
+                Resaltar archivos .hfs
+              </label>
+              <label class="toggle-switch">
+                <input type="checkbox" id="settings-highlight-hfs-folders" checked />
+                <span class="toggle-slider"></span>
+                Resaltar carpetas .hfs
+              </label>
+            </div>
+
+            <div class="settings-row mt-12 settings-row-inline">
+              <label class="toggle-switch">
+                <input type="checkbox" id="settings-rgb-toggle" checked />
+                <span class="toggle-slider"></span>
+                Habilitar efecto RGB fluido
+              </label>
+              <div class="rgb-speed-inline" id="rgb-speed-control">
+                <label for="settings-rgb-speed" class="font-small block mb-4">Velocidad del ciclo (segundos):</label>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <input type="range" id="settings-rgb-speed" min="1" max="15" value="6" style="flex:1;" />
+                  <span id="rgb-speed-value" class="font-small" style="min-width:30px;">6s</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/logoHFS.ico" />
+    <title>HydraFS Herramientas</title>
+    <link rel="stylesheet" href="basic.css" />
+    <script type="module" src="/basic.js" defer></script>
+  </head>
+  <body>
+    <main class="panel">
+      <h1>HydraFS Herramientas</h1>
+      <p class="hint">Ventana auxiliar con acciones comunes para archivos.</p>
+
+      <label class="field" for="path-input">Ruta</label>
+      <input id="path-input" type="text" placeholder="C:\\" />
+
+      <label class="field" for="password-input">Contrasena</label>
+      <input id="password-input" type="password" placeholder="Introduce una contrasena" />
+
+      <div class="actions">
+        <button id="btn-open" type="button">Abrir</button>
+        <button id="btn-show" type="button">Mostrar en el Explorador</button>
+        <button id="btn-encrypt" type="button">Encriptar</button>
+        <button id="btn-decrypt" type="button" disabled>Desencriptar</button>
+      </div>
+
+      <div id="status" class="status">Listo.</div>
+    </main>
+  </body>
+</html>

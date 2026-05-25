@@ -1,0 +1,3 @@
+    Blocking waiting for file lock on build directory
+    Checking hydrafs v0.1.0 (W:\Documentos\Antigravity\HydraFS\src-tauri)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 10.73s
