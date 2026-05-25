@@ -10,9 +10,7 @@ HydraFS es una aplicación de escritorio para gestión de contraseñas y cifrado
 - Cifrado de archivos y carpetas:
   - Cifra y descifra archivos individuales.
   - Cifra carpetas completas conservando la estructura de archivos.
-- Interfaz de escritorio multiplataforma con Tauri:
-  - Experiencia nativa en Windows, Mac y Linux.
-  - Acceso rápido a funciones de seguridad desde una UI moderna.
+  - Integración con el Explorador nativo de Windows.
 
 ## Estructura del repositorio
 
@@ -92,4 +90,4 @@ Si deseas contribuir:
 
 ## Notas finales
 
-HydraFS está pensado como una base para una gestora de contraseñas y cifrado local. El objetivo es ofrecer una herramienta flexible y segura que combine almacenamiento cifrado con la capacidad de proteger archivos y carpetas en el escritorio.
+HydraFS está pensado como una base para un gestor de contraseñas y cifrado local. El objetivo es ofrecer una herramienta flexible y segura que combine almacenamiento cifrado con la capacidad de proteger archivos y carpetas en el escritorio.
