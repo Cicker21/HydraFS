@@ -53,19 +53,6 @@ npm run tauri build
 
 El resultado se encontrará en `src-tauri/target/release/bundle/`.
 
-## Uso de `actualizar.bat`
-
-Ejecuta `actualizar.bat` desde la raíz del proyecto para:
-
-- Añadir todos los cambios (`git add -A`)
-- Solicitar un mensaje de commit obligatorio
-- Hacer commit de los cambios
-- Enviar la rama actual al remoto configurado
-
-```bat
-actualizar.bat
-```
-
 ## Seguridad
 
 - Este proyecto hace uso de Rust para operaciones de cifrado y manejo de datos sensibles.
